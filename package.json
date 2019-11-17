@@ -10,6 +10,9 @@
     "dev": "source .env-local && NODE_ENV=development nodemon ./src/executables/api.js",
     "lint": "eslint --fix ./src/**/*.js",
     "pre-commit": "yarn lint && yarn test",
+    "scheduler": "node ./src/executables/scheduler.js",
+    "scheduler-dev": "source .env-local && yarn scheduler",
+    "start": "node ./src/executables/api.js",
     "test": "source .env-local && NODE_ENV=testing mocha --exit ./src/**/*.test.js"
   },
   "dependencies": {
