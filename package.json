@@ -1,0 +1,35 @@
+{
+  "name": "fabelio-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:rizkisunaryo/fabelio-backend.git",
+  "author": "Rizki Sunaryo",
+  "license": "MIT",
+  "scripts": {
+    "dev": "source .env-local && NODE_ENV=development nodemon ./src/executables/api.js",
+    "lint": "eslint --fix ./src/**/*.js",
+    "pre-commit": "yarn lint && yarn test",
+    "test": "source .env-local && NODE_ENV=testing mocha --exit ./src/**/*.test.js"
+  },
+  "dependencies": {
+    "cors": "2.8.5",
+    "express": "4.17.1",
+    "mongodb": "3.3.4"
+  },
+  "devDependencies": {
+    "eslint": "6.6.0",
+    "eslint-config-standard": "14.1.0",
+    "eslint-plugin-import": "2.18.2",
+    "eslint-plugin-node": "10.0.0",
+    "eslint-plugin-promise": "4.2.1",
+    "eslint-plugin-standard": "4.0.1",
+    "husky": "3.0.9",
+    "mocha": "6.2.2",
+    "nodemon": "1.19.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn pre-commit"
+    }
+  }
+}
