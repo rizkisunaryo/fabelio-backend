@@ -1,3 +1,3 @@
 module.exports = {
-    QUEUE_NAME: 'urls'
+  QUEUE_NAME: 'urls'
 }
