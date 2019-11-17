@@ -1,5 +1,6 @@
 const { getClient } = require('../../addOns/mongodb')
 const { DATABASE_NAME } = require('../../constants/mongodbConstants')
+const { sendToQueue } = require('../../addOns/rabbitMq')
 
 const post = async (req, res) => {
     const client = await getClient()
@@ -17,6 +18,7 @@ const post = async (req, res) => {
     urlsCollection.createIndex({ url: 1 }, { unique: true })
     try {
         await urlsCollection.insertOne({ url })
+        sendToQueue(url)
     } catch (error) {
         res.status(400).json({
             message: 'Duplicate URL'

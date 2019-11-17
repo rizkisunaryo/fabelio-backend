@@ -24,5 +24,6 @@ URL can be inserted by API. The flow is shown with green line in the picture abo
 
 # How to Run
 1. Run MongoDB: `docker-compose -f stack.yml up`
-2. Run RabbitMQ: `docker run -d --hostname my-rabbit --name some-rabbit -p 8080:15672 rabbitmq:3-management`
-3. Run backend, by running `yarn dev` in terminal, in this project root folder
+2. Run RabbitMQ: `docker run -d --hostname my-rabbit --name some-rabbit -p 8080:15672 -p 5672:5672 rabbitmq:3-management`
+3. Run backend: `yarn dev`
+4. Run crawler: `yarn crawler`
