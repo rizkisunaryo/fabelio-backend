@@ -36,9 +36,17 @@ const crawl = async url => {
           $set: { ...pageUpdateObj }
         }
       )
-    }, 5000)
+    }, 10000)
   } catch (error) {
     console.error(error)
+    try {
+      const client = await getClient()
+      const db = client.db(DATABASE_NAME)
+      const pagesCollection = db.collection('Pages')
+      await pagesCollection.deleteOne({ url })
+    } catch (error2) {
+      console.error(error2)
+    }
   }
 }
 
