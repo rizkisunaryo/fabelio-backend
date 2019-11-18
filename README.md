@@ -23,8 +23,7 @@ URL can be inserted by API. The flow is shown with green line in the picture abo
 - Run `yarn install` in terminal, in this project root folder
 
 # How to Run
-1. Run MongoDB: `docker-compose -f stack.yml up`
-2. Run RabbitMQ: `docker run -d --hostname my-rabbit --name some-rabbit -p 8080:15672 -p 5672:5672 rabbitmq:3-management`
-3. Run backend: `yarn dev`
-4. Run crawler: `yarn crawler`
-5. Run scheduler: `yarn scheduler-dev`
+`./run.sh`
+
+# How to Stop
+`./kill.sh`

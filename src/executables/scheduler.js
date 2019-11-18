@@ -14,11 +14,13 @@ const getUrlsFromDb = async () => {
 
 const start = async () => {
   const urlObjectArray = await getUrlsFromDb()
-  urlObjectArray.forEach(urlObject => sendToQueue(urlObject.url))
+  urlObjectArray.forEach(urlObject => {
+    sendToQueue(urlObject.url).catch(() => {
+      setTimeout(() => sendToQueue(urlObject.url), 5000)
+    })
+  })
 
-  setTimeout(() => {
-    start()
-  }, timely)
+  setTimeout(() => start(), timely)
 }
 
 start()
