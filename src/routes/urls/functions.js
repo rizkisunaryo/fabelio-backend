@@ -14,10 +14,10 @@ const post = async (req, res) => {
         return
     }
 
-    const urlsCollection = db.collection('Urls')
-    urlsCollection.createIndex({ url: 1 }, { unique: true })
+    const pagesCollection = db.collection('Pages')
+    pagesCollection.createIndex({ url: 1 }, { unique: true })
     try {
-        await urlsCollection.insertOne({ url })
+        await pagesCollection.insertOne({ url })
         sendToQueue(url)
     } catch (error) {
         res.status(400).json({

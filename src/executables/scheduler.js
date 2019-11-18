@@ -7,8 +7,8 @@ const timely = 60 * 60 * 1000
 const getUrlsFromDb = async () => {
   const client = await getClient()
   const db = client.db(DATABASE_NAME)
-  const urlsCollection = db.collection('Urls')
-  const urls = await urlsCollection.find().toArray()
+  const pagesCollection = db.collection('Pages')
+  const urls = await pagesCollection.find().toArray()
   return urls
 }
 

@@ -32,8 +32,8 @@ describe('urls', function () {
 
             const client = await getClient()
             const db = client.db(DATABASE_NAME)
-            const urlsCollection = db.collection('Urls')
-            const urls = await urlsCollection.find().toArray()
+            const pagesCollection = db.collection('Pages')
+            const urls = await pagesCollection.find().toArray()
 
             assert.equal(urls[0].url, testUrl)
         });
@@ -44,8 +44,8 @@ describe('urls', function () {
 
             const client = await getClient()
             const db = client.db(DATABASE_NAME)
-            const urlsCollection = db.collection('Urls')
-            const urls = await urlsCollection.find().toArray()
+            const pagesCollection = db.collection('Pages')
+            const urls = await pagesCollection.find().toArray()
 
             assert.equal(urls.length, 1)
         });

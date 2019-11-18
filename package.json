@@ -6,11 +6,12 @@
   "author": "Rizki Sunaryo",
   "license": "MIT",
   "scripts": {
-    "crawler": "node ./src/executables/crawler.js",
+    "crawler": "nodemon ./src/executables/crawler.js",
+    "crawler-dev": "source .env-local && yarn crawler",
     "dev": "source .env-local && NODE_ENV=development nodemon ./src/executables/api.js",
     "lint": "eslint --fix ./src/**/*.js",
     "pre-commit": "yarn lint && yarn test",
-    "scheduler": "node ./src/executables/scheduler.js",
+    "scheduler": "nodemon ./src/executables/scheduler.js",
     "scheduler-dev": "source .env-local && yarn scheduler",
     "start": "node ./src/executables/api.js",
     "test": "source .env-local && NODE_ENV=testing mocha --exit ./src/**/*.test.js"
@@ -19,7 +20,8 @@
     "amqplib": "0.5.5",
     "cors": "2.8.5",
     "express": "4.17.1",
-    "mongodb": "3.3.4"
+    "mongodb": "3.3.4",
+    "puppeteer": "2.0.0"
   },
   "devDependencies": {
     "eslint": "6.6.0",
